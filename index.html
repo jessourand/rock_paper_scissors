@@ -1,0 +1,77 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script>
+            const computerPlay = function(){
+                const num = Math.floor(Math.random() * 3);
+                if (num === 1){
+                    return("Rock");
+                } else if (num === 2) {
+                    return("Paper");
+                } else {
+                    return("Scissors");
+                }
+            }
+            const playerPlay = function(){
+                let answer = prompt("what you gon' pick, fool?").toLowerCase();
+                answer = answer.charAt(0).toUpperCase() + answer.slice(1);
+                if (answer != "Rock" && answer != "Paper" && answer != "Scissors"){
+                    console.log("invalid input. Please choose Rock, Paper, or Scissors");
+                    return playerPlay();
+                } else { 
+                return(answer);
+                }
+            }
+            let wins = 0;
+            let losses = 0;
+
+            const playRPS = function(playerSelection, computerSelection) {
+                if (playerSelection == computerSelection){
+                    console.log(`You and Computer both picked ${playerSelection}. Tie game!`);
+                } else if (playerSelection == "Rock" && computerSelection == "Scissors"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    wins += 1;
+                } else if (playerSelection == "Rock" && computerSelection == "Paper"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    losses +=1;
+                } else if (playerSelection == "Paper" && computerSelection == "Rock"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    wins +=1;
+                } else if (playerSelection == "Paper" && computerSelection == "Scissors"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    losses +=1;
+                } else if (playerSelection == "Scissors" && computerSelection == "Rock"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    losses +=1;
+                } else if (playerSelection == "Scissors" && computerSelection == "Paper"){
+                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    wins +=1;
+                }else {
+                    console.log("Oops.. Something went wrong.");
+                }
+            }
+            
+            const playARound = function() {
+                const ps = playerPlay();
+                const cs = computerPlay();
+                playRPS(ps, cs);
+            }
+            playARound();
+            playARound();
+            playARound();
+            playARound();
+            playARound();
+
+            console.log(`You have ${wins} wins and ${losses} losses`)
+            if (wins>losses){
+                console.log("YOU WON THE GAME SUCKA!")
+            } else if (wins === losses) {
+                console.log("YOU TIED SUCKA")
+            } else {
+                console.log("YOU LOSE, SIR. GOOD DAY.")
+            }
+
+        </script>
+    </body>
+</html>
