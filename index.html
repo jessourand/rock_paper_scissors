@@ -14,10 +14,10 @@
                 }
             }
             const playerPlay = function(){
-                let answer = prompt("what you gon' pick, fool?").toLowerCase();
+                let answer = prompt("It's a game of Rock, Paper, Scissors. What you gon' pick, fool?").toLowerCase();
                 answer = answer.charAt(0).toUpperCase() + answer.slice(1);
                 if (answer != "Rock" && answer != "Paper" && answer != "Scissors"){
-                    console.log("invalid input. Please choose Rock, Paper, or Scissors");
+                    alert("invalid input. Please choose Rock, Paper, or Scissors");
                     return playerPlay();
                 } else { 
                 return(answer);
@@ -28,27 +28,27 @@
 
             const playRPS = function(playerSelection, computerSelection) {
                 if (playerSelection == computerSelection){
-                    console.log(`You and Computer both picked ${playerSelection}. Tie game!`);
+                    alert(`You and Computer both picked ${playerSelection}. This round is a tie!`);
                 } else if (playerSelection == "Rock" && computerSelection == "Scissors"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win this round!`);
                     wins += 1;
                 } else if (playerSelection == "Rock" && computerSelection == "Paper"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose this round!`);
                     losses +=1;
                 } else if (playerSelection == "Paper" && computerSelection == "Rock"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win this round!`);
                     wins +=1;
                 } else if (playerSelection == "Paper" && computerSelection == "Scissors"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose this round!`);
                     losses +=1;
                 } else if (playerSelection == "Scissors" && computerSelection == "Rock"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You lose this round!`);
                     losses +=1;
                 } else if (playerSelection == "Scissors" && computerSelection == "Paper"){
-                    console.log(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win!`);
+                    alert(`You picked ${playerSelection}. Computer picked ${computerSelection}. You win this round!`);
                     wins +=1;
                 }else {
-                    console.log("Oops.. Something went wrong.");
+                    alert("Oops.. Something went wrong.");
                 }
             }
             
@@ -63,13 +63,13 @@
             playARound();
             playARound();
 
-            alert(`You have ${wins} wins and ${losses} losses`)
+            //alert(`You have ${wins} wins and ${losses} losses`)
             if (wins>losses){
-                alert("YOU WON THE GAME SUCKA!")
+                alert((`You have ${wins} wins and ${losses} losses.`)+(" YOU WON THE GAME SUCKA!"))
             } else if (wins === losses) {
-                alert("YOU TIED SUCKA")
+                alert((`You have ${wins} wins and ${losses} losses.`)+(" YOU TIED SUCKA"))
             } else {
-                alert("YOU LOSE, SIR. GOOD DAY.")
+                alert((`You have ${wins} wins and ${losses} losses.`)+(" YOU LOSE, SIR. GOOD DAY."))
             }
 
         </script>
